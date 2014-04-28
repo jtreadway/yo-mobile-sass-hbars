@@ -1,0 +1,58 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script type="text/javascript" src="bower_components/modernizr/modernizr.js"></script>        
+        <!-- endbuild -->
+    </head>
+    <body>
+        <div>
+        	header
+        
+			<script id="hb-main" type="text/x-handlebars-template">
+				<h1>{{title}}</h1>
+				<p>{{intro}}</p>
+
+				{{#each dates}}
+					<h2>{{date}}</h2>
+					{{#each venues}}
+						<h3>
+							<a href="{{url}}" target="_blank">{{name}}</a> - {{phone}}
+						</h3>
+						{{#each events}}
+							{{#each attractions}}{{#if @index }},{{/if}}
+								{{name}}{{/each}}
+							({{ages}}, {{cost}})
+							({{notes}})
+							{{#each times}}{{#if @index }},{{/if}}
+								{{this}}{{/each}}
+							{{#if soldout }}
+								[SOLD OUT]
+							{{/if}}							
+							<br>
+						{{/each}}
+					{{/each}}
+				{{/each}}
+			</script>
+
+			footer
+
+		</div>
+
+
+		<!-- build:js scripts/main.js -->
+		<script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+		<!-- endbuild -->
+
+	</body>
+</html>
